@@ -1,33 +1,20 @@
-import {createElement} from "../utils/render.js";
-
+import AbstarctComponent from "./abstract-component.js";
 
 const boardTemplate = () => {
    return (
     `<section class="board">
-        <h1>Kek</h1>
+
     </section>`
    ) 
 };
 
-export default class Board {
+export default class Board extends AbstarctComponent {
     constructor() {
-        this._element = null;
-    }
+      super();
+    };
 
     getTemplate () {
         return boardTemplate();
     };
-
-    getElement() {
-        if (!this._element) {
-          this._element = createElement(this.getTemplate());
-        };
-    
-        return this._element;
-      };
-
-      removeElement() {
-        this._element = null;
-      };
 };
 
