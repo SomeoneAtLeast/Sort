@@ -13,6 +13,7 @@ const siteMain = document.querySelector(`.main`);
 // доска с блоками
 
 render(siteMain, new Board, RenderPosition.BEFOREEND);
+const boardClass = new Board;
 const board = document.querySelector(`.board`);
 
 // блоки
@@ -20,3 +21,11 @@ const board = document.querySelector(`.board`);
 for (let i = 0; i < blockСount; i++) {
     render(board, new SortBlock, RenderPosition.BEFOREEND);
 };
+
+// board.addEventListener(`click`, function() {
+
+// });
+
+boardClass.setSortTypeChangeHandler(() => {
+
+});

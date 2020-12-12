@@ -5,7 +5,7 @@ const boardTemplate = () => {
     `<section class="board">
 
     </section>`
-   ) 
+   );
 };
 
 export default class Board extends AbstarctComponent {
@@ -15,6 +15,16 @@ export default class Board extends AbstarctComponent {
 
     getTemplate () {
         return boardTemplate();
+    };
+
+    setSortTypeChangeHandler(hendler) {
+      this.getElement().addEventListener(`click`, (evt) => {
+        evt.preventDefault();
+
+        if (evt.target.tagName !== "article") {
+          return;
+        }
+      });
     };
 };
 
