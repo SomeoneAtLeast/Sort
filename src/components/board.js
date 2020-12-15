@@ -9,21 +9,27 @@ const boardTemplate = () => {
 };
 
 export default class Board extends AbstarctComponent {
-    constructor() {
+    constructor(targetBlock) {
       super();
+
+      this.targetBlock = targetBlock;
     };
 
     getTemplate () {
         return boardTemplate();
     };
 
-    setSortTypeChangeHandler(hendler) {
-      this.getElement().addEventListener(`click`, (evt) => {
+    setSortTypeChangeHandler() {
+      console.log(this.targetBlock);
+      
+      this.targetBlock.addEventListener(`click`, (evt) => {
         evt.preventDefault();
-
-        if (evt.target.tagName !== "article") {
+    
+        if (evt.target.tagName !== "ARTICLE") {
           return;
         }
+    
+        alert("kek")
       });
     };
 };
