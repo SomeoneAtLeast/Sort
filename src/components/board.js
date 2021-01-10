@@ -29,7 +29,7 @@ export default class Board extends AbstarctComponent {
           return;
         }
     
-        alert("kek")
+        // alert("kek")
       });
     };
 };

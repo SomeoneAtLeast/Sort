@@ -1,25 +1,37 @@
 import Board from "./components/board.js";
+import BoardController from "./controllers/board-controller.js";
 import SortBlock from "./components/sort-block.js";
-import {RenderPosition, render, createElement, remove} from "./utils/render.js";
+import {RenderPosition, render} from "./utils/render.js";
 
 // количество блоков
 
 let blockСount = 8;
 
-// main страницы
+// Контроллер доски
 
-const siteMain = document.querySelector(`.main`);
+const BoardControllerClass = new BoardController;
+BoardControllerClass.render();
 
-// доска с блоками
+// Доска 
 
-render(siteMain, new Board, RenderPosition.BEFOREEND);
 const board = document.querySelector(`.board`);
 const boardClass = new Board(board);
 
 // блоки
 
-for (let i = 0; i < blockСount; i++) {
+const renderBlock = () => {
     render(board, new SortBlock, RenderPosition.BEFOREEND);
 };
+
+for (let i = 0; i < blockСount; i++) {
+    renderBlock();
+};
+
+// Удаление блока 
+const BoardControllerClassBoard = new BoardController (board);
+BoardControllerClassBoard.DelBlock();
+
+
+// Обработчик сортировки 
 
 boardClass.setSortTypeChangeHandler(boardClass);
